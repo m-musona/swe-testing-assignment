@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { add } from "./CalculatorLogic";
+import { add, subtract } from "./CalculatorLogic";
 import "./Calculator.css";
 
 export default function Calculator() {
@@ -35,7 +35,7 @@ export default function Calculator() {
 
       <div className="buttons">
         <button onClick={() => setResult(add(+a, +b))}>+</button>
-        <button>-</button>
+        <button onClick={() => setResult(subtract(+a, +b))}>-</button>
         <button>x</button>
         <button>÷</button>
         <button className="clear" onClick={clear}>
