@@ -2,7 +2,7 @@
 
 Quick-Calc is a lightweight calculator application built with React that performs basic arithmetic operations: addition, subtraction, multiplication, and division. The project emphasizes clean code structure, separation of concerns, and testability over complex UI design. It also includes graceful error handling and a clear/reset function to ensure a smooth and user-friendly experience.
 
-This application is intended as a demonstration of modern React development practices, including component-based architecture and reusable business logic.
+This application is intended as a demonstration of modern React development practices, including component-based architecture and reusable business logic, and unit testing.
 
 ---
 
@@ -23,7 +23,8 @@ This application is intended as a demonstration of modern React development prac
 - **Vite** for fast development and build tooling
 - **JavaScript (ES6+)**
 - **CSS** for styling
-- **Vitest / Jest** (depending on setup) for unit testing
+- **Vitest** for unit and integration testing
+- **React Testing Library** for UI interaction testing
 
 ---
 
@@ -35,6 +36,8 @@ quick-calc/
 │ ├─ Calculator.jsx # Main calculator component
 │ ├─ CalculatorLogic.js # Pure calculation functions
 │ ├─ Calculator.test.js # Unit tests for calculator logic
+│ ├─ CalculatorLogic.test.js # Unit tests for logic
+│ ├─ Calculator.integration.test.jsx # Integration tests for UI
 │ ├─ App.jsx # Application entry component
 │ ├─ index.css # Global styles
 │ └─ main.jsx # React bootstrap file
@@ -85,3 +88,31 @@ http://localhost:5173
 
 - Minimal UI by Design
   The interface is intentionally simple to keep the focus on code quality, clarity, and correctness.
+
+---
+
+## How to Run Tests
+
+This project uses Vitest for its test suite. You can run the tests using the following command:
+
+```bash
+npm test
+```
+
+---
+
+## Testing Framework Research: Vitest vs. Jest
+
+When choosing a testing framework for this React application, the two primary candidates were Jest and Vitest. Jest has long been the industry standard for React testing due to its massive ecosystem, built-in mocking capabilities, and extensive documentation. However, Jest often requires complex configuration (via Babel or TS-Jest) to work correctly with modern ESM-based tools like Vite, which can lead to slower startup times and "transformation" headaches during the build process.
+
+In contrast, Vitest is a modern testing framework built specifically to leverage the speed of Vite. It shares the same configuration, transformation pipeline, and plugins as the development server, making it significantly faster and easier to set up in a Vite project. While Vitest is newer, it maintains a Jest-compatible API, allowing developers to use familiar functions like describe, test, and expect without a steep learning curve.
+
+Justification for Choice: I chose Vitest for this project because it offers a "zero-config" experience that aligns perfectly with the Vite build tool. By using the same pipeline for both development and testing, we ensure that the test environment behaves exactly like the browser. Its superior performance in "Watch Mode" provides an instant feedback loop, which is essential for the test-driven development approach used in Quick-Calc.
+
+---
+
+## License
+
+This project is provided for educational and demonstration purposes.
+
+---

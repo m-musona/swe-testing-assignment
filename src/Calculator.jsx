@@ -45,6 +45,7 @@ export default function Calculator() {
 
       <div
         className={`result ${String(result).includes("Error") ? "error" : ""}`}
+        data-testid="result"
       >
         {result}
       </div>
