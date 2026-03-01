@@ -114,5 +114,3 @@ Justification for Choice: I chose Vitest for this project because it offers a "z
 ## License
 
 This project is provided for educational and demonstration purposes.
-
----
